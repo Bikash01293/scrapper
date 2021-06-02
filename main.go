@@ -58,10 +58,10 @@ func getData(w http.ResponseWriter, r *http.Request) {
 		description := e.ChildText("div#productDescription")
 		stars := e.ChildText("span#acrCustomerReviewText")
 
-		// if url == "" || productName == "" && price == "" || description == "" || stars == "" {
-		// 	// If we can't get any url, product name, price, reviews we return and go directly to the next element
-		// 	return
-		// }
+		if url == "" || productName == "" && price == "" || description == "" || stars == "" {
+			// If we can't get any url, product name, price, reviews we return and go directly to the next element
+			return
+		}
 
 		response = append(response, url, productName, price, description, stars)
 	})
